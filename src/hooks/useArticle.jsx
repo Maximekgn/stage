@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 
 const useArticle = () => {
@@ -38,21 +37,21 @@ const useArticle = () => {
         imageUrl: 'https://via.placeholder.com/150',
         category: 'Science',
         content: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-      } ,
+      },
       {
         id: 5,
-        title: 'The Future of AI',
-        summary: 'Exploring the potential impacts of artificial intelligence on society.',
+        title: 'Blockchain and Cryptocurrency',
+        summary: 'Understanding the technology behind blockchain and its applications in cryptocurrency.',
         imageUrl: 'https://via.placeholder.com/150',
         category: 'Technology',
         content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
       },
       {
         id: 6,
-        title: 'The Future of AI',
-        summary: 'Exploring the potential impacts of artificial intelligence on society.',
+        title: 'The Human Genome Project',
+        summary: 'Exploring the achievements and implications of mapping the human genome.',
         imageUrl: 'https://via.placeholder.com/150',
-        category: 'Technology',
+        category: 'Science',
         content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
       }
     ];
@@ -72,13 +71,15 @@ const useArticle = () => {
   };
 
   // Fonction pour rechercher des articles par terme de recherche
-  const getArticlesBySearch = (searchTerm) => {
-    return articles.filter(article => article.title.toLowerCase().includes(searchTerm.toLowerCase()));
+  const searchArticles = (searchTerm) => {
+    return articles.filter(article => 
+      article.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      article.summary.toLowerCase().includes(searchTerm.toLowerCase())
+    );
   };
 
-
   // Retourne les articles et les fonctions utilitaires
-  return { articles, getArticleById, getArticlesByCategory, getArticlesBySearch };
+  return { articles, getArticleById, getArticlesByCategory, searchArticles };
 };
 
 export default useArticle;
