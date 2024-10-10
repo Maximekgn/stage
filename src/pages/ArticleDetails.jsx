@@ -1,9 +1,10 @@
 import { useParams } from 'react-router-dom'
-import useArticle from '../hooks/useArticle'
+import { useContext } from 'react'
+import { ArticleContext } from '../contexts/ArticleContext'
 
 const ArticleDetails = () => {
   const { id } = useParams()
-  const { getArticleById } = useArticle()
+  const { getArticleById } = useContext(ArticleContext)
   const article = getArticleById(id)
 
   if (!article) {

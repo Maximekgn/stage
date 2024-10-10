@@ -1,12 +1,12 @@
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useEffect, useMemo, useContext } from 'react'
 import ArticleList from '../components/ArticleList'
-import useArticle from '../hooks/useArticle'
 import Pagination from '../components/Pagination'
+import { ArticleContext } from '../contexts/ArticleContext'
 
 const ARTICLES_PER_PAGE = 4
 
 const Home = () => {
-  const { articles, searchArticles } = useArticle()
+  const { articles, searchArticles } = useContext(ArticleContext)
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('All')
   const [currentPage, setCurrentPage] = useState(1)
