@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 const useArticle = () => {
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
-    // Simulation de récupération d'articles depuis une API
+    // Articles de test
     const fetchedArticles = [
       {
         id: 1,
@@ -55,31 +55,22 @@ const useArticle = () => {
         content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
       }
     ];
-
-    // Mise à jour de l'état avec les articles récupérés
     setArticles(fetchedArticles);
   }, []); 
 
-  // Fonction pour obtenir un article par son ID
-  const getArticleById = (id) => {
+  const getArticleById = useCallback((id) => {
     return articles.find(article => article.id === parseInt(id));
-  };
+  }, [articles]);
 
-  // Fonction pour filtrer les articles par catégorie
-  const getArticlesByCategory = (category) => {
-    return articles.filter(article => article.category === category);
-  };
-
-  // Fonction pour rechercher des articles par terme de recherche
-  const searchArticles = (searchTerm) => {
+  const searchArticles = useCallback((searchTerm, category) => {
     return articles.filter(article => 
-      article.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      article.summary.toLowerCase().includes(searchTerm.toLowerCase())
+      (category === 'All' || article.category === category) &&
+      (article.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+       article.summary.toLowerCase().includes(searchTerm.toLowerCase()))
     );
-  };
+  }, [articles]);
 
-  // Retourne les articles et les fonctions utilitaires
-  return { articles, getArticleById, getArticlesByCategory, searchArticles };
+  return { articles, getArticleById, searchArticles };
 };
 
 export default useArticle;

@@ -8,28 +8,28 @@ const ArticleDetails = () => {
   const article = getArticleById(id)
 
   if (!article) {
-    return <div className="container mt-5">
-      <div className="alert alert-warning" role="alert">
-        Article not found
+    return (
+      <div className="container mt-5">
+        <div className="alert alert-warning" role="alert">
+          Article not found
+        </div>
       </div>
-    </div>
+    )
   }
 
   return (
     <div className="container mt-5">
       <button className="btn btn-primary mb-3" onClick={() => window.history.back()}>Back</button>
-     <div className="row justify-content-center d-flex align-items-center">
-      <div className="col-6">
-        <img src={article.imageUrl} className="card-img-top" alt={article.title} />
+      <div className="row">
+        <div className="col-md-6">
+          <img src={article.imageUrl} className="img-fluid" alt={article.title} />
+        </div>
+        <div className="col-md-6">
+          <h1>{article.title}</h1>
+          <h6 className="text-muted">{article.category}</h6>
+          <p>{article.content}</p>
+        </div>
       </div>
-      <div className="col-6">
-        <h1 className="card-title">{article.title}</h1>
-        <h6 className="card-subtitle mb-2 text-muted">{article.category}</h6>
-      </div>
-     </div>
-     <div className="row">
-       <p className="card-text">{article.content}</p>
-     </div>
     </div>
   )
 }
