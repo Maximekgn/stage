@@ -1,0 +1,38 @@
+.article-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+    padding: 20px;
+}
+
+.article-list .card {
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.article-list .card:hover {
+    transform: translateY(-5px);
+}
+
+.article-list .card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.article-list .card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.article-list .card-text {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.article-list .btn-primary {
+    width: 100%;
+}

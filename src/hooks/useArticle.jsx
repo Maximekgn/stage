@@ -5,7 +5,7 @@ const useArticle = () => {
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
-    // Simulating fetching articles from an API
+    // Simulation de récupération d'articles depuis une API
     const fetchedArticles = [
       {
         id: 1,
@@ -57,15 +57,28 @@ const useArticle = () => {
       }
     ];
 
+    // Mise à jour de l'état avec les articles récupérés
     setArticles(fetchedArticles);
-  }, []);
+  }, []); 
 
+  // Fonction pour obtenir un article par son ID
   const getArticleById = (id) => {
     return articles.find(article => article.id === parseInt(id));
   };
 
-  return { articles, getArticleById };
+  // Fonction pour filtrer les articles par catégorie
+  const getArticlesByCategory = (category) => {
+    return articles.filter(article => article.category === category);
+  };
+
+  // Fonction pour rechercher des articles par terme de recherche
+  const getArticlesBySearch = (searchTerm) => {
+    return articles.filter(article => article.title.toLowerCase().includes(searchTerm.toLowerCase()));
+  };
+
+
+  // Retourne les articles et les fonctions utilitaires
+  return { articles, getArticleById, getArticlesByCategory, getArticlesBySearch };
 };
 
 export default useArticle;
-

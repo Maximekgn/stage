@@ -7,20 +7,18 @@ const categories = ['All', 'Technology', 'Science']
 const articlesPerPage = 4
 
 const Home = () => {
-  const { articles } = useArticle()
+  const { articles, getArticlesBySearch, getArticlesByCategory } = useArticle()
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('All')
   const [filteredArticles, setFilteredArticles] = useState([])
   const [currentPage, setCurrentPage] = useState(1)
 
   useEffect(() => {
-    const filtered = articles.filter(article => 
-      article.title.toLowerCase().includes(searchTerm.toLowerCase()) &&
-      (selectedCategory === 'All' || article.category === selectedCategory)
-    )
+    let filtered = selectedCategory === 'All' ? articles : getArticlesByCategory(selectedCategory)
+    filtered = getArticlesBySearch(searchTerm)
     setFilteredArticles(filtered)
     setCurrentPage(1)
-  }, [searchTerm, selectedCategory, articles])
+  }, [searchTerm, selectedCategory, articles, getArticlesByCategory, getArticlesBySearch])
 
   const indexOfLastArticle = currentPage * articlesPerPage
   const indexOfFirstArticle = indexOfLastArticle - articlesPerPage
