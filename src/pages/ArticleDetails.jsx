@@ -1,4 +1,3 @@
-import React from 'react'
 import { useParams } from 'react-router-dom'
 import useArticle from '../hooks/useArticle'
 
@@ -19,15 +18,15 @@ const ArticleDetails = () => {
 
   return (
     <div className="container mt-5">
-      <button className="btn btn-primary mb-3" onClick={() => window.history.back()}>Back</button>
-      <div className="row">
-        <div className="col-md-6">
-          <img src={article.imageUrl} className="img-fluid" alt={article.title} />
+      <button className="btn btn-primary mb-4" onClick={() => window.history.back()}>Back</button>
+      <div className="article-details">
+        <div className="article-image d-flex justify-content-center mt-4 mb-4 ">
+          <img src={article.imageUrl} className="img-fluid rounded shadow" alt={article.title} />
         </div>
-        <div className="col-md-6">
-          <h1>{article.title}</h1>
-          <h6 className="text-muted">{article.category}</h6>
-          <p>{article.content}</p>
+        <div className="article-content">
+          <h1 className="article-title">{article.title}</h1>
+          <h6 className="article-category text-muted mb-4">{article.category}</h6>
+          <p className="article-text">{article.content}</p>
         </div>
       </div>
     </div>
