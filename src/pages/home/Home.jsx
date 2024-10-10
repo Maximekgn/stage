@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo, useContext } from 'react'
-import ArticleList from '../components/ArticleList'
-import Pagination from '../components/Pagination'
-import { ArticleContext } from '../contexts/ArticleContext'
+import ArticleList from '../../components/ArticleList'
+import Pagination from '../../components/Pagination'
+import { ArticleContext } from '../../contexts/ArticleContext'
 
 const ARTICLES_PER_PAGE = 4
 

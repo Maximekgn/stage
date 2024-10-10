@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom'
 import { useContext } from 'react'
-import { ArticleContext } from '../contexts/ArticleContext'
+import { ArticleContext } from '../../contexts/ArticleContext'
 
 const ArticleDetails = () => {
   const { id } = useParams()
