@@ -18,7 +18,7 @@ const ArticleDetails = () => {
   return (
     <div className="container mt-5">
       <button className="btn btn-primary mb-3" onClick={() => window.history.back()}>Back</button>
-     <div className="row">
+     <div className="row justify-content-center d-flex align-items-center">
       <div className="col-6">
         <img src={article.imageUrl} className="card-img-top" alt={article.title} />
       </div>

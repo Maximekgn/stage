@@ -44,17 +44,17 @@ const Home = () => {
       </div>
       <div className="row mb-4">
         <div className="col-md-6 offset-md-3">
-          <div className="btn-group d-flex" role="group">
+          <select
+            className="form-select"
+            value={selectedCategory}
+            onChange={(e) => setSelectedCategory(e.target.value)}
+          >
             {categories.map(category => (
-              <button
-                key={category}
-                onClick={() => setSelectedCategory(category)}
-                className={`btn ${selectedCategory === category ? 'btn-primary' : 'btn-outline-primary'}`}
-              >
+              <option key={category} value={category}>
                 {category}
-              </button>
+              </option>
             ))}
-          </div>
+          </select>
         </div>
       </div>
       <ArticleList articles={currentArticles} />

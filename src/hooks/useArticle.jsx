@@ -38,6 +38,22 @@ const useArticle = () => {
         imageUrl: 'https://via.placeholder.com/150',
         category: 'Science',
         content: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+      } ,
+      {
+        id: 5,
+        title: 'The Future of AI',
+        summary: 'Exploring the potential impacts of artificial intelligence on society.',
+        imageUrl: 'https://via.placeholder.com/150',
+        category: 'Technology',
+        content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+      },
+      {
+        id: 6,
+        title: 'The Future of AI',
+        summary: 'Exploring the potential impacts of artificial intelligence on society.',
+        imageUrl: 'https://via.placeholder.com/150',
+        category: 'Technology',
+        content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
       }
     ];
 
